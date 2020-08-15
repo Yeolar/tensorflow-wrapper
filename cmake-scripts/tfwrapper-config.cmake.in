@@ -1,0 +1,25 @@
+#
+# CMake package configuration file for tfwrapper
+#
+# Defines the target "tfwrapper::tfwrapper"
+# Add this to your target_link_libraries() call to depend on tfwrapper.
+#
+# Also sets the variables TFWRAPPER_INCLUDE_DIR and TFWRAPPER_LIBRARY.
+# However, in most cases using the tfwrapper::tfwrapper target is sufficient,
+# and you won't need these variables.
+#
+
+@PACKAGE_INIT@
+
+set_and_check(TFWRAPPER_INCLUDE_DIR "@PACKAGE_CMAKE_INSTALL_INCLUDEDIR@")
+
+if(NOT TARGET tfwrapper::tfwrapper)
+  include(${CMAKE_CURRENT_LIST_DIR}/tfwrapper-targets.cmake)
+endif()
+
+set(TF_CC_LIBRARY "@PACKAGE_CMAKE_INSTALL_LIBDIR@/libtensorflow_cc.so")
+set(TFWRAPPER_LIBRARY tfwrapper::tfwrapper)
+
+if(NOT tfwrapper_FIND_QUIETLY)
+  message(STATUS "Found tfwrapper: ${PACKAGE_PREFIX_DIR}")
+endif()
