@@ -33,4 +33,6 @@
 
 /_build/
 /_deps/
+/tensorflow-linux/
+/tensorflow-mac/
 /tfwrapper/tfwrapper-config.h

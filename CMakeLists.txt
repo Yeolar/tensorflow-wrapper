@@ -47,7 +47,11 @@ configure_file(
 )
 
 # Work on all sub directories
-add_subdirectory(tensorflow)
+if(APPLE)
+  add_subdirectory(tensorflow-mac)
+else()
+  add_subdirectory(tensorflow-linux)
+endif()
 add_subdirectory(tfwrapper)
 
 add_library(tfwrapper
